@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section HeadExtra {
+    <style>
+        /* 通用卡片样式 */
+        .func-card {
+            text-decoration: none;
+            color: inherit;
+            border-radius: .5rem;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,.1);
+            transition: transform .15s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+            .func-card:hover {
+                transform: translateY(-3px)
+            }
+
+            .func-card img {
+                object-fit: cover;
+                width: 100%;
+                height: 120px
+            }
+
+        .func-body {
+            flex: 1;
+            padding: 1rem
+        }
+    </style>
+}
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="/en">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shanghai</li>
+    </ol>
+</nav>
+
+<!-- 简介 -->
+<header class="mb-5">
+    <h1 class="h3 fw-bold mb-3">Shanghai Metro Overview</h1>
+    <p>
+        Shanghai Metro is the world’s longest rapid‑transit system by route length, spanning more than
+        <strong>830 km</strong> with <strong>19+</strong> lines and over <strong>500</strong> stations. It
+        serves <em>~10 million</em> daily riders and continues to expand with new lines under
+        construction.
+    </p>
+    <p>
+        Use the cards below to explore maps, plan routes, and view detailed information for each line
+        and station.
+    </p>
+</header>
+
+<!-- 功能卡片网格 -->
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+
+    <!-- Metro Map -->
+    <div class="col">
+        <a class="func-card" href="metro-map.html">
+            <img src="~/assets/img/metro/map/routemap_sh_en.png" alt="Official metro map">
+            <div class="func-body">
+                <h2 class="h6 fw-bold">Metro Map</h2>
+                <p class="small mb-0">Official schematic map of all operating lines.</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Planning Map -->
+    <div class="col">
+        <a class="func-card" href="planning-map.html">
+            <img src="~/assets/img/metro/plan/plan_sh_cn.png" alt="Planning map placeholder">
+            <div class="func-body">
+                <h2 class="h6 fw-bold">Planning Map</h2>
+                <p class="small mb-0">Future lines under construction &amp; approved phases.</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Interactive Map -->
+    <div class="col">
+        <a class="func-card" href="map.html">
+            <img src="https://placehold.co/600x120?text=Interactive+Map" alt="Interactive map thumbnail">
+            <div class="func-body">
+                <h2 class="h6 fw-bold">Interactive Map</h2>
+                <p class="small mb-0">Pan &amp; zoom, locate stations on city map.</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Route Planner -->
+    <div class="col">
+        <a class="func-card" href="route-planner.html">
+            <img src="https://placehold.co/600x120?text=Route+Planner" alt="Route planner thumbnail">
+            <div class="func-body">
+                <h2 class="h6 fw-bold">Route Planner</h2>
+                <p class="small mb-0">Find fastest routes, fares &amp; transfer info.</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Lines -->
+    <div class="col">
+        <a class="func-card" href="lines/">
+            <img src="https://placehold.co/600x120/e40f0f/ffffff?text=25+Lines" alt="Lines overview">
+            <div class="func-body">
+                <h2 class="h6 fw-bold">Lines</h2>
+                <p class="small mb-0">View all <strong>25</strong> Shanghai Metro lines.</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Stations -->
+    <div class="col">
+        <a class="func-card" href="stations/">
+            <img src="https://placehold.co/600x120/0090d1/ffffff?text=500%2B+Stations" alt="Stations list">
+            <div class="func-body">
+                <h2 class="h6 fw-bold">Stations</h2>
+                <p class="small mb-0">Browse detailed info for <strong>500+</strong> stations.</p>
+            </div>
+        </a>
+    </div>
+
+</div><!-- /grid -->
