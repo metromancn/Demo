@@ -1,42 +1,111 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@{
+    var currentLang = (ViewBag.Lang as string ?? "zh-CN").ToLower();
+    string LabelOf(string l)
+    {
+        switch (l)
+        {
+            case "en": return "EN";
+            case "ja": return "日本語";
+            case "zh-hant": return "繁體";
+            default: return "简体";
+        }
+    }
+}
+
+<!DOCTYPE html>
+<html lang="@ViewBag.Lang">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <title>@ViewBag.Title - MetroMan</title>
+
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/css/site.css" />
+
+    @RenderSection("HeadExtra", required: false)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light border-bottom">
+            <div class="container">
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+                <!-- 品牌 Logo + 文字 (桌面显示双语，移动仅图标) -->
+                <a href="~/" class="navbar-brand d-flex align-items-center">
+                    <img src="~/assets/img/brand/metroman.png" width="28" height="28" alt="MetroMan 地铁通">
+                    <span class="ms-2 fw-bold d-none d-lg-inline">
+                        MetroMan <small class="text-muted">· 地铁通</small>
+                    </span>
+                </a>
+
+                <!-- 折叠按钮（移动） -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mainNav" aria-controls="mainNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- 主菜单 -->
+                <div id="mainNav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="@Url.Content("~/en/app")">APP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Content("~/en/cities")">CITIES</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Content("~/en/metro-rankings")">RANKINGS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Content("~/en/ask-ai")">ASK AI</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Content("~/updates")">UPDATES</a></li>
+                    </ul>
+
+                    <!-- 语言切换下拉 -->
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown ms-lg-3">
+                            <a class="nav-link dropdown-toggle" href="#" id="langMenu"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @LabelOf(currentLang)
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langMenu">
+                                <li>
+                                    <a class="dropdown-item @(currentLang.StartsWith("zh") && !currentLang.Contains("hant") ? "active" : "")"
+                                       href="@Url.Action("SetLang", "Lang", new { to = "zh", @return = Request.RawUrl })">
+                                        简体
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item @(currentLang == "zh-hant" ? "active" : "")"
+                                       href="@Url.Action("SetLang", "Lang", new { to = "zh-hant", @return = Request.RawUrl })">
+                                        繁體
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item @(currentLang == "en" ? "active" : "")"
+                                       href="@Url.Action("SetLang", "Lang", new { to = "en", @return = Request.RawUrl })">
+                                        EN
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item @(currentLang == "ja" ? "active" : "")"
+                                       href="@Url.Action("SetLang", "Lang", new { to = "ja", @return = Request.RawUrl })">
+                                        日本語
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-4">
+        @RenderBody()
+    </main>
+
+    <footer class="text-center text-muted py-4 border-top">
+        © 2025 MetroMan   京ICP备17009405号‑1
+    </footer>
+
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

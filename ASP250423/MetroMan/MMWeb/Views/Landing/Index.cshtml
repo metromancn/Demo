@@ -1,11 +1,10 @@
-﻿@{ Layout = null; }
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <title>简体首页</title>
-</head>
-<body>
-    <h1>这是简体中文首页</h1>
-</body>
-</html>
+﻿@{
+    ViewBag.Title = "首页";
+    ViewBag.Lang = "zh-CN";                    /* 供 _Layout 设置 <html lang> */
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center py-5">
+    <h1 class="display-5">这是简体中文首页</h1>
+    <p>这里可以放站点的 Hero、搜索框或 CTA。</p>
+</div>

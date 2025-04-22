@@ -1,11 +1,8 @@
-﻿@{ Layout = null; }
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="utf-8">
-    <title>繁體首頁</title>
-</head>
-<body>
-    <h1>這是繁體中文首頁</h1>
-</body>
-</html>
+﻿@{
+    ViewBag.Title = "首頁";
+    ViewBag.Lang = "zh-Hant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center py-5">
+    <h1 class="display-5">這是繁體中文首頁</h1>
+</div>

@@ -1,11 +1,9 @@
-﻿@{ Layout = null; }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>English Home</title>
-</head>
-<body>
-    <h1>This is English home page</h1>
-</body>
-</html>
+﻿@{
+    ViewBag.Title = "Home";
+    ViewBag.Lang = "en";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center py-5">
+    <h1 class="display-5">This is the English home page</h1>
+</div>
