@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section HeadExtra {
+    <style>
+        /* Hero */
+        .hero-badge {
+            font-size: .9rem
+        }
+
+            .hero-badge + .hero-badge {
+                margin-left: .4rem
+            }
+
+        /* 排行榜 */
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            padding: .75rem 0;
+            border-bottom: 1px solid #dee2e6
+        }
+
+        .rank-no {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #c89d00;
+            width: 2rem;
+            text-align: center
+        }
+
+        .rank-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: #fff;
+            border: 1px solid #eee
+        }
+
+        /* 城市 Logo 卡片 */
+        .city-card {
+            background: #fff;
+            border-radius: .5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,.08);
+            text-decoration: none;
+            color: inherit;
+            padding: .75rem;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform .15s
+        }
+
+            .city-card:hover {
+                transform: translateY(-3px)
+            }
+
+            .city-card img {
+                max-height: 60px;
+                object-fit: contain;
+                margin-bottom: .5rem
+            }
+    </style>
+}
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="/en">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Cities</li>
+    </ol>
+</nav>
+
+<!-- ================= A. HERO ================= -->
+<section class="mb-5">
+    <h1 class="h3 fw-bold mb-2">China Metro Cities</h1>
+    <div class="mb-3">
+        <span class="badge bg-light text-dark hero-badge">50 cities</span>
+        <span class="badge bg-light text-dark hero-badge">10 000+ km</span>
+        <span class="badge bg-light text-dark hero-badge">6 000 stations</span>
+    </div>
+
+    <!-- 折叠详情：首屏不占空间，仍利于 SEO -->
+    <details>
+        <summary class="fw-semibold mb-2">Expand overview ▸</summary>
+        <p class="mb-1">
+            Mainland China hosts the world’s largest metro network, beginning with the
+            Beijing Subway in 1969 and now spanning 50 cities. Ongoing expansion projects are adding
+            hundreds of kilometres every year.
+        </p>
+        <p class="mb-0">
+            The tables and cards below let you explore each city by network size,
+            opening year and more.
+        </p>
+    </details>
+</section>
+
+<!-- ================= B. RANKING ================= -->
+<section class="mb-5">
+    <h2 class="h5 fw-bold mb-3">Top 10 by Operating Mileage <small class="text-muted">(as of 2025‑04‑22)</small></h2>
+
+    <article class="rank-item">
+        <div class="rank-no">1</div>
+        <div class="flex-grow-1">
+            <a href="/en/cities/shanghai/" class="text-decoration-none fw-bold">Shanghai</a>
+            <small class="text-muted d-block">891 km • 21 lines • 514 stations • opened 1993‑05</small>
+        </div>
+        <img class="rank-thumb" src="~/assets/img/metro/thum/rank_sh.png" alt="Shanghai metro map thumb">
+    </article>
+
+    <article class="rank-item">
+        <div class="rank-no">2</div>
+        <div class="flex-grow-1">
+            <a href="/en/cities/beijing/" class="text-decoration-none fw-bold">Beijing</a>
+            <small class="text-muted d-block">858 km • 25 lines • 498 stations • opened 1971‑01</small>
+        </div>
+        <img class="rank-thumb" src="~/assets/img/metro/thum/rank_bj.png" alt="Beijing metro map thumb">
+    </article>
+
+    <article class="rank-item">
+        <div class="rank-no">3</div>
+        <div class="flex-grow-1">
+            <a href="/en/cities/guangzhou/" class="text-decoration-none fw-bold">Guangzhou</a>
+            <small class="text-muted d-block">671 km • 18 lines • 332 stations • opened 1997‑06</small>
+        </div>
+        <img class="rank-thumb" src="~/assets/img/metro/thum/rank_gz.png" alt="Guangzhou metro map thumb">
+    </article>
+
+    <article class="rank-item">
+        <div class="rank-no">4</div>
+        <div class="flex-grow-1">
+            <a href="/en/cities/shenzhen/" class="text-decoration-none fw-bold">Shenzhen</a>
+            <small class="text-muted d-block">583 km • 17 lines • 397 stations • opened 2004‑12</small>
+        </div>
+        <img class="rank-thumb" src="~/assets/img/metro/thum/rank_sz.png" alt="Shenzhen metro map thumb">
+    </article>
+
+    <!-- TODO: 继续列到 Top 10 (或 Top 20) -->
+</section>
+
+<!-- ================= C. CITY GRID ================= -->
+<section class="mb-5">
+    <h2 class="h5 fw-bold mb-3">Explore All Cities</h2>
+
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+
+        <!-- Shanghai -->
+        <div class="col">
+            <a class="city-card" href="/en/cities/shanghai/">
+                <img src="~/assets/img/metro/logo/logo_sh.png" alt="Shanghai Metro logo">
+                <span class="fw-bold">Shanghai</span>
+                <small class="text-muted">上海</small>
+                <span class="badge bg-light text-dark mt-1">891 km</span>
+            </a>
+        </div>
+
+        <!-- Beijing -->
+        <div class="col">
+            <a class="city-card" href="/en/cities/beijing/">
+                <img src="~/assets/img/metro/logo/logo_bj.png" alt="Beijing Subway logo">
+                <span class="fw-bold">Beijing</span>
+                <small class="text-muted">北京</small>
+                <span class="badge bg-light text-dark mt-1">858 km</span>
+            </a>
+        </div>
+
+        <!-- Guangzhou -->
+        <div class="col">
+            <a class="city-card" href="/en/cities/guangzhou/">
+                <img src="~/assets/img/metro/logo/logo_gz.png" alt="Guangzhou Metro logo">
+                <span class="fw-bold">Guangzhou</span>
+                <small class="text-muted">广州</small>
+                <span class="badge bg-light text-dark mt-1">671 km</span>
+            </a>
+        </div>
+
+        <!-- Shenzhen -->
+        <div class="col">
+            <a class="city-card" href="/en/cities/shenzhen/">
+                <img src="~/assets/img/metro/logo/logo_sz.png" alt="Shenzhen Metro logo">
+                <span class="fw-bold">Shenzhen</span>
+                <small class="text-muted">深圳</small>
+                <span class="badge bg-light text-dark mt-1">583 km</span>
+            </a>
+        </div>
+
+        <!-- TODO: 继续补足其它城市 -->
+    </div>
+</section>
+
+<!-- ================= D. FAQ (Placeholder) ================= -->
+
+<section class="mb-5">
+    <h2 class="h5 fw-bold mb-3">FAQ</h2>
+    <p class="mb-2">
+        <strong>Which city has the most metro lines?</strong><br>Beijing leads with 25
+        lines in operation.
+    </p>
+</section>
+
