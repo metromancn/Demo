@@ -14,7 +14,16 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light border-bottom">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="~/">MetroMan</a>
+                <a href="~/"
+                   class="navbar-brand d-flex align-items-center">
+                    <img src="@Url.Content("~/assets/img/brand/logo-navbar.png")"
+                         width="28" height="28" alt="MetroMan 地铁通">
+                    <span class="ms-2 fw-bold d-none d-lg-inline">
+                        MetroMan
+                        @*<small class="text-muted"> - 地铁通</small>*@
+                    </span>
+                </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#mainNav">
                     <span class="navbar-toggler-icon"></span>
