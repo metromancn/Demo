@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section HeadExtra {
+    <style>
+        .line-card {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            border-radius: .5rem;
+            box-shadow: 0 0 .2rem rgba(0,0,0,.1);
+            transition: transform .15s;
+        }
+
+            .line-card:hover {
+                transform: translateY(-2px);
+            }
+
+        .line-1 {
+            background: #e40f0f
+        }
+
+        .line-2 {
+            background: #0090d1
+        }
+
+        .line-3 {
+            background: #fcb813
+        }
+
+        .line-4 {
+            background: #00a65f
+        }
+
+        .line-5 {
+            background: #8d5bac
+        }
+
+        .line-6 {
+            background: #9cc3e8
+        }
+        /* 若有更多线路颜色，在此补充 .line-7 ... */
+    </style>
+}
+
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="/en">Home</a></li>
+        <li class="breadcrumb-item"><a href="/en/cities/shanghai/">Shanghai</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Lines</li>
+    </ol>
+</nav>
+
+<div class="row row-cols-2 row-cols-md-4 row-cols-xl-6 g-3">
+    <!-- Line 1 -->
+    <div class="col">
+        <a class="line-card line-1" href="line-1/">
+            <span class="h5 fw-bold mb-0">LINE 1</span>
+            <small class="text-uppercase">1 号线</small>
+        </a>
+    </div>
+    <!-- Line 2 -->
+    <div class="col">
+        <a class="line-card line-2" href="line-2/">
+            <span class="h5 fw-bold mb-0">LINE 2</span>
+            <small>2 号线</small>
+        </a>
+    </div>
+    <!-- Line 3 -->
+    <div class="col">
+        <a class="line-card line-3" href="line-3/">
+            <span class="h5 fw-bold mb-0">LINE 3</span>
+            <small>3 号线</small>
+        </a>
+    </div>
+    <!-- Line 4 -->
+    <div class="col">
+        <a class="line-card line-4" href="line-4/">
+            <span class="h5 fw-bold mb-0">LINE 4</span>
+            <small>4 号线</small>
+        </a>
+    </div>
+    <!-- Line 5 -->
+    <div class="col">
+        <a class="line-card line-5" href="line-5/">
+            <span class="h5 fw-bold mb-0">LINE 5</span>
+            <small>5 号线</small>
+        </a>
+    </div>
+    <!-- Line 6 -->
+    <div class="col">
+        <a class="line-card line-6" href="line-6/">
+            <span class="h5 fw-bold mb-0">LINE 6</span>
+            <small>6 号线</small>
+        </a>
+    </div>
+    <!-- …继续列完所有线路 -->
+</div>
