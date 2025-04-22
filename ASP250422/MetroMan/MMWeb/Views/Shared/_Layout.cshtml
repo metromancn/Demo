@@ -23,7 +23,47 @@
                 <div id="mainNav" class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="~/en/app">APP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="~/en/cities">CITIES</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="~/en/cities"
+                               id="navCities" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                CITIES
+                            </a>
+
+                            <div class="dropdown-menu p-3" aria-labelledby="navCities" style="min-width: 280px;">
+                                <!-- 搜索框 -->
+                                <input type="text" class="form-control mb-2" placeholder="Search city…" id="citySearch">
+
+                                <!-- 热门城市列表 -->
+                                <div id="hotCities">
+                                    <a class="dropdown-item d-flex align-items-center" href="~/en/cities/beijing">
+                                        <img src="@Url.Content("~/assets/img/metro/logo/logo_bj.png")" class="me-2 city-icon" alt=""> Beijing
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="~/en/cities/shanghai">
+                                        <img src="@Url.Content("~/assets/img/metro/logo/logo_sh.png")" class="me-2 city-icon" alt=""> Shanghai
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="~/en/cities/guangzhou">
+                                        <img src="@Url.Content("~/assets/img/metro/logo/logo_gz.png")" class="me-2 city-icon" alt=""> Guangzhou
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="~/en/cities/shenzhen">
+                                        <img src="@Url.Content("~/assets/img/metro/logo/logo_sz.png")" class="me-2 city-icon" alt=""> Shenzhen
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="~/en/cities/hongkong">
+                                        <img src="@Url.Content("~/assets/img/metro/logo/logo_hk.png")" class="me-2 city-icon" alt=""> Hong Kong
+                                    </a>
+                                    <a class="dropdown-item d-flex align-items-center" href="~/en/cities/taipei">
+                                        <img src="@Url.Content("~/assets/img/metro/logo/logo_tb.png")" class="me-2 city-icon" alt=""> Taipei
+                                    </a>
+                                </div>
+
+                                <div class="dropdown-divider"></div>
+
+                                <!-- All Cities -->
+                                <a class="dropdown-item d-flex align-items-center" href="~/en/cities">
+                                    <img src="@Url.Content("~/assets/img/brand/favicon-32.png")" class="me-2 city-icon" alt=""> All Cities
+                                </a>
+                            </div>
+                        </li>
+
                         <li class="nav-item"><a class="nav-link" href="~/en/metro-rankings">RANKINGS</a></li>
                         <li class="nav-item"><a class="nav-link" href="~/en/ask-ai">ASK AI</a></li>
                         <li class="nav-item"><a class="nav-link" href="~/updates">UPDATES</a></li>
