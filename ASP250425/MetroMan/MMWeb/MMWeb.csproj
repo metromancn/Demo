@@ -117,7 +117,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -127,6 +126,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\site.css" />
+    <Content Include="assets\img\brand\android-chrome-192.png" />
+    <Content Include="assets\img\brand\android-chrome-512.png" />
+    <Content Include="assets\img\brand\apple-touch-icon.png" />
+    <Content Include="assets\img\brand\favicon-32.png" />
+    <Content Include="assets\img\brand\favicon.ico" />
+    <Content Include="assets\img\brand\logo-navbar.png" />
+    <Content Include="assets\img\brand\metroman.png" />
+    <Content Include="assets\img\brand\metroman_1024.png" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\bootstrap.bundle.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
