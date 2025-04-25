@@ -124,12 +124,12 @@
     <value>App</value>
   </data>
   <data name="NavCities" xml:space="preserve">
-    <value>Cities</value>
+    <value>城市</value>
   </data>
   <data name="NavRankings" xml:space="preserve">
-    <value>Rankings</value>
+    <value>排行榜</value>
   </data>
   <data name="NavUpdates" xml:space="preserve">
-    <value>Updates</value>
+    <value>动态</value>
   </data>
 </root>

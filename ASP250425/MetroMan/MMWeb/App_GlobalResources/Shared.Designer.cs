@@ -79,7 +79,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cities.
+        ///   Looks up a localized string similar to 城市.
         /// </summary>
         internal static string NavCities {
             get {
@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rankings.
+        ///   Looks up a localized string similar to 排行榜.
         /// </summary>
         internal static string NavRankings {
             get {
@@ -97,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updates.
+        ///   Looks up a localized string similar to 动态.
         /// </summary>
         internal static string NavUpdates {
             get {
