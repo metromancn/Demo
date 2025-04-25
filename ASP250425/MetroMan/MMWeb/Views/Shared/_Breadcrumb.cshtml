@@ -1,0 +1,19 @@
+﻿@model List<(string Name, string Url)>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            if (i == Model.Count - 1)
+            {
+                <li class="breadcrumb-item active" aria-current="page">@Model[i].Name</li>
+            }
+            else
+            {
+                <li class="breadcrumb-item">
+                    <a href="@Model[i].Url">@Model[i].Name</a>
+                </li>
+            }
+        }
+    </ol>
+</nav>

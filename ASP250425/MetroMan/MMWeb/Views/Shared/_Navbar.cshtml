@@ -1,0 +1,52 @@
+﻿@using Resources
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="~/assets/img/brand/logo-navbar.png" alt="MetroMan" width="32" height="32" class="me-2">
+            MetroMan
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Shared.NavApp</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Shared.NavCities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Shared.NavRankings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Shared.NavAI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">@Shared.NavUpdates</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        简
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="@Url.Action("SetLang", "Lang", new { to="zh", redirect=Request.RawUrl })">简体中文</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("SetLang", "Lang", new { to="zh-hant", redirect=Request.RawUrl })">繁體中文</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("SetLang", "Lang", new { to="en", redirect=Request.RawUrl })">English</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("SetLang", "Lang", new { to="ja", redirect=Request.RawUrl })">日本語</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
