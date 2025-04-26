@@ -13,7 +13,6 @@ namespace MMWeb
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // 多语言主页独立路由
             routes.MapRoute(
                 name: "HomeZhHant",
                 url: "zh-hant",
@@ -29,20 +28,41 @@ namespace MMWeb
                 url: "ja",
                 defaults: new { controller = "Home", action = "IndexJa" }
             );
-            // 默认简体主页
+
+            routes.MapRoute(
+                name: "RankingZhHant",
+                url: "zh-hant/ranking",
+                defaults: new { controller = "Ranking", action = "Index" }
+            );
+            routes.MapRoute(
+                name: "RankingEn",
+                url: "en/ranking",
+                defaults: new { controller = "Ranking", action = "Index" }
+            );
+            routes.MapRoute(
+                name: "RankingJa",
+                url: "ja/ranking",
+                defaults: new { controller = "Ranking", action = "Index" }
+            );
+            routes.MapRoute(
+                name: "RankingDefault",
+                url: "ranking",
+                defaults: new { controller = "Ranking", action = "Index" }
+            );
+
             routes.MapRoute(
                 name: "DefaultHome",
                 url: "",
                 defaults: new { controller = "Home", action = "Index" }
             );
-            // 其它页面动态多语言
+
             routes.MapRoute(
                 name: "LocalizedDefault",
                 url: "{lang}/{controller}/{action}/{id}",
                 defaults: new { lang = UrlParameter.Optional, controller = "Home", action = "Index", id = UrlParameter.Optional },
                 constraints: new { lang = "zh-hant|en|ja" }
             );
-            // 默认其它页面
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

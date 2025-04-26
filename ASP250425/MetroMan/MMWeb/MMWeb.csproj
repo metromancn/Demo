@@ -117,6 +117,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Ranking.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ranking.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Ranking.en.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ranking.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Ranking.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ranking.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Ranking.zh-Hant.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ranking.zh-Hant.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Shared.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +160,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RankingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -332,6 +353,30 @@
     <Content Include="App_GlobalResources\Shared.zh-Hant.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Shared.zh-Hant.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Ranking.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Ranking.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Ranking.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Ranking.en.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Ranking.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Ranking.ja.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Ranking.zh-Hant.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Ranking.zh-Hant.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
