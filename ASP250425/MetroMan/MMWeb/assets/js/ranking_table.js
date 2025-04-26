@@ -1,28 +1,71 @@
 // 多语言字段映射
 function getCityName(item) {
     const lang = (window.CURRENT_LANG || '').toLowerCase();
-    if (lang.startsWith('en')) return item.city_en;
-    if (lang.startsWith('ja')) return item.city_ja;
-    if (lang.startsWith('zh-hant')) return item.city_zh_hant;
-    return item.city_zh;
+    if (lang.startsWith('en')) return item.en;
+    if (lang.startsWith('ja')) return item.ja;
+    if (lang.startsWith('zh-hant')) return item.tw;
+    return item.cn;
 }
-function getOpenDate(item) {
+
+function formatOpen(item) {
+    const open = item.open;
+    if (!open || isNaN(open)) return '';
+    const year = Math.floor(open / 100);
+    const month = open % 100;
     const lang = (window.CURRENT_LANG || '').toLowerCase();
-    if (lang.startsWith('en')) return item.open_en;
-    if (lang.startsWith('ja')) return item.open_ja;
-    if (lang.startsWith('zh-hant')) return item.open_zh_hant;
-    return item.open;
+    if (lang.startsWith('en')) {
+        // 英文月份
+        const months = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return `${months[month]} ${year}`;
+    } else {
+        // 中文、日文格式
+        return `${year}年${month}月`;
+    }
+}
+
+function getThumb(item) {
+    return `/assets/img/metro/thum/rank_${item.key}.png`;
 }
 
 // 排序
-let sortField = 'rank';
-let sortOrder = 'asc';
+let sortField = 'mileage';
+let sortOrder = 'desc';
+
+function calcRanks(data, field, order) {
+    // 默认按field排序，降序。排名相同则rank相同，跳号
+    let arr = data.slice();
+    arr.sort((a, b) => {
+        let v1 = a[field], v2 = b[field];
+        if (typeof v1 === 'string') v1 = v1.toLowerCase();
+        if (typeof v2 === 'string') v2 = v2.toLowerCase();
+        if (v1 < v2) return order === 'asc' ? -1 : 1;
+        if (v1 > v2) return order === 'asc' ? 1 : -1;
+        return 0;
+    });
+    let lastValue = null, lastRank = 0, skip = 1;
+    arr.forEach((item, idx) => {
+        let v = item[field];
+        if (v === lastValue) {
+            item._rank = lastRank;
+            skip++;
+        } else {
+            item._rank = lastRank + skip;
+            lastRank = item._rank;
+            skip = 1;
+            lastValue = v;
+        }
+    });
+    return arr;
+}
 
 function renderTable() {
     const tbody = document.querySelector('#metroRankTable tbody');
     tbody.innerHTML = '';
     let data = METRO_RANKING_DATA.slice();
-    data.sort((a, b) => {
+    // 排序并计算排名
+    let arr = calcRanks(data, sortField, sortOrder);
+    // 按当前排序显示
+    arr.sort((a, b) => {
         let v1 = a[sortField], v2 = b[sortField];
         if (typeof v1 === 'string') v1 = v1.toLowerCase();
         if (typeof v2 === 'string') v2 = v2.toLowerCase();
@@ -30,16 +73,16 @@ function renderTable() {
         if (v1 > v2) return sortOrder === 'asc' ? 1 : -1;
         return 0;
     });
-    data.forEach(item => {
+    arr.forEach(item => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>${item.rank}</td>
+            <td>${item._rank}</td>
             <td>${getCityName(item)}</td>
             <td>${item.mileage}</td>
             <td>${item.stations}</td>
             <td>${item.lines}</td>
-            <td>${getOpenDate(item)}</td>
-            <td><img src="${item.thumb}" alt="${getCityName(item)}" width="48" height="48" class="rounded" /></td>
+            <td>${formatOpen(item)}</td>
+            <td><img src="${getThumb(item)}" alt="${getCityName(item)}" width="48" height="48" class="rounded" /></td>
         `;
         tbody.appendChild(tr);
     });
@@ -55,7 +98,7 @@ function setupSort() {
                 sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
             } else {
                 sortField = field;
-                sortOrder = 'asc';
+                sortOrder = 'desc';
             }
             renderTable();
         });
