@@ -1,0 +1,42 @@
+@{
+    ViewBag.Title = Resources.Ranking.PageTitle;
+    var lang = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLower();
+}
+
+<!-- 多语言表头用资源文件，表格内容用JS渲染 -->
+<div class="container py-4">
+    <h1 class="mb-4">@Resources.Ranking.PageTitle</h1>
+    <div class="table-responsive">
+        <table id="metroRankTable" class="table table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th data-sort="rank">@Resources.Ranking.Rank</th>
+                    <th data-sort="city">@Resources.Ranking.City</th>
+                    <th data-sort="mileage">@Resources.Ranking.Mileage</th>
+                    <th data-sort="stations">@Resources.Ranking.Stations</th>
+                    <th data-sort="lines">@Resources.Ranking.Lines</th>
+                    <th data-sort="open">@Resources.Ranking.Open</th>
+                    <th>@Resources.Ranking.Thumb</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JS填充数据 -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    window.CURRENT_LANG = '@lang';
+    window.RANKING_RES = {
+        Rank: '@Resources.Ranking.Rank',
+        City: '@Resources.Ranking.City',
+        Mileage: '@Resources.Ranking.Mileage',
+        Stations: '@Resources.Ranking.Stations',
+        Lines: '@Resources.Ranking.Lines',
+        Open: '@Resources.Ranking.Open',
+        Thumb: '@Resources.Ranking.Thumb'
+    };
+</script>
+<script src="/assets/js/ranking_data.js"></script>
+<script src="/assets/js/ranking_table.js"></script>
