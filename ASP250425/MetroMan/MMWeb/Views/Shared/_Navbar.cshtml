@@ -22,7 +22,14 @@
                     <a class="nav-link" href="#">@Shared.NavCities</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ranking">@Shared.NavRankings</a>
+                    @{
+                        var langPrefix = "";
+                        var currentPath = Request.Path.ToLower();
+                        if (currentPath.StartsWith("/zh-hant")) { langPrefix = "/zh-hant"; }
+                        else if (currentPath.StartsWith("/en")) { langPrefix = "/en"; }
+                        else if (currentPath.StartsWith("/ja")) { langPrefix = "/ja"; }
+                    }
+                    <a class="nav-link" href="@($"{langPrefix}/ranking".Replace("//", "/"))">@Shared.NavRankings</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">@Shared.NavAI</a>
@@ -36,7 +43,6 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                         @{
-                            // 检测当前语言
                             var path = Request.Path.ToLower();
                             string langMark = "简";
                             if (path.StartsWith("/zh-hant")) { langMark = "繁"; }
