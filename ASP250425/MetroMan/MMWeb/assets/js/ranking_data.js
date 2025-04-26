@@ -13,7 +13,7 @@ const METRO_RANKING_DATA = [
     open_en: "May 1993",
     open_ja: "1993年5月",
     open_zh_hant: "1993年5月",
-    thumb: "/assets/img/metro/thum/imgrank_sh.png"
+    thumb: "/assets/img/metro/thum/rank_sh.png"
   },
   {
     rank: 2,
@@ -28,7 +28,7 @@ const METRO_RANKING_DATA = [
     open_en: "Jan 1971",
     open_ja: "1971年1月",
     open_zh_hant: "1971年1月",
-    thumb: "/assets/img/metro/thum/imgrank_bj.png"
+    thumb: "/assets/img/metro/thum/rank_bj.png"
   }
   // ...更多城市
 ];
