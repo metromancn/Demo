@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +11,21 @@ namespace MMWeb.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult IndexZhHant()
+        {
+            return View("Index.zh-hant");
+        }
+
+        public ActionResult IndexEn()
+        {
+            return View("Index.en");
+        }
+
+        public ActionResult IndexJa()
+        {
+            return View("Index.ja");
         }
     }
 }

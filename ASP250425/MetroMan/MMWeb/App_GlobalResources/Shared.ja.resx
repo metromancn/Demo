@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="NavAI" xml:space="preserve">
-    <value />
+    <value>MetroGPT</value>
   </data>
   <data name="NavApp" xml:space="preserve">
-    <value />
+    <value>アプリ</value>
   </data>
   <data name="NavCities" xml:space="preserve">
-    <value />
+    <value>都市</value>
   </data>
   <data name="NavRankings" xml:space="preserve">
-    <value />
+    <value>ランキング</value>
   </data>
   <data name="NavUpdates" xml:space="preserve">
-    <value />
+    <value>更新情報</value>
   </data>
 </root>
