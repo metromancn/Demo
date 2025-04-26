@@ -86,21 +86,47 @@ function renderTable() {
         `;
         tbody.appendChild(tr);
     });
+
+    // 更新排序标记
+    document.querySelectorAll('#metroRankTable th[data-sort]').forEach(th => {
+        th.classList.remove('table-sort-active');
+        const icon = th.querySelector('.sort-indicator');
+        if (icon) icon.remove();
+        const field = th.getAttribute('data-sort');
+        if (field === sortField) {
+            th.classList.add('table-sort-active');
+            const mark = document.createElement('span');
+            mark.className = 'sort-indicator ms-1';
+            mark.innerHTML = sortField === 'open' ? '↑' : '↓';
+            th.appendChild(mark);
+        }
+    });
 }
 
-// 表头点击排序
+// 表头点击排序（仅允许mileage, stations, lines, open，且只支持单向排序）
 function setupSort() {
+    const allowed = {
+        mileage: 'desc',
+        stations: 'desc',
+        lines: 'desc',
+        open: 'asc'
+    };
     document.querySelectorAll('#metroRankTable th[data-sort]').forEach(th => {
+        const field = th.getAttribute('data-sort');
+        if (!allowed.hasOwnProperty(field)) {
+            th.style.cursor = 'default';
+            th.onclick = null;
+            th.classList.remove('table-sort-active');
+            return;
+        }
         th.style.cursor = 'pointer';
         th.addEventListener('click', () => {
-            const field = th.getAttribute('data-sort');
-            if (sortField === field) {
-                sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-            } else {
+            if (sortField !== field) {
                 sortField = field;
-                sortOrder = 'desc';
+                sortOrder = allowed[field];
+                renderTable();
             }
-            renderTable();
+            // 如果点的是当前排序列，不做任何操作
         });
     });
 }
@@ -109,3 +135,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSort();
     renderTable();
 });
+
+// 添加简单排序标记样式
+const style = document.createElement('style');
+style.innerHTML = `.table-sort-active { color: #007bff; font-weight: bold; } .sort-indicator { font-size: 0.9em; }`;
+document.head.appendChild(style);
