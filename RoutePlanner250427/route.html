@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Route Planner Demo</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .input-like{display:flex;align-items:center;padding:.75rem 1rem;background:#f8f9fa;border:1px solid #ced4da;border-radius:.375rem;cursor:pointer;}
+        .input-like.disabled{opacity:.6;cursor:not-allowed;}
+        .city-logo{width:24px;height:24px;object-fit:contain;margin-right:.5rem;}
+    </style>
+</head>
+<body>
+<div class="container py-4 py-md-5" style="max-width:480px;">
+    <!-- City Row -->
+    <div class="mb-3">
+        <div id="citySelect" class="input-like" data-bs-toggle="modal" data-bs-target="#cityPickerModal">
+            <img id="cityLogo" class="city-logo" src="assets/img/metro/logo/logo_sh.png" alt="logo">
+            <span id="cityName" class="flex-grow-1">上海</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+    <!-- From Station -->
+    <div class="mb-3">
+        <div id="fromSelect" class="input-like" data-field="from" data-bs-toggle="modal" data-bs-target="#stationPickerModal">
+            <span id="fromText" class="text-muted">出发站</span>
+            <i class="bi bi-chevron-right ms-auto"></i>
+        </div>
+    </div>
+    <!-- To Station -->
+    <div class="mb-3">
+        <div id="toSelect" class="input-like" data-field="to" data-bs-toggle="modal" data-bs-target="#stationPickerModal">
+            <span id="toText" class="text-muted">到达站</span>
+            <i class="bi bi-chevron-right ms-auto"></i>
+        </div>
+    </div>
+    <!-- Time Picker -->
+    <div class="mb-3">
+        <div id="timeSelect" class="input-like" data-bs-toggle="modal" data-bs-target="#timePickerModal">
+            <span id="timeText" class="text-muted">现在出发</span>
+            <i class="bi bi-chevron-right ms-auto"></i>
+        </div>
+    </div>
+    <!-- Plan Button -->
+    <div class="d-grid">
+        <button id="planBtn" class="btn btn-success btn-lg">换乘查询</button>
+    </div>
+</div>
+<!-- City Picker Modal -->
+<div class="modal fade" id="cityPickerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h5 class="modal-title">选择城市</h5>
+      </div>
+      <div class="modal-body">
+        <input type="search" class="form-control mb-3" placeholder="搜索城市..." id="citySearch">
+        <ul id="cityList" class="list-group"></ul>
+      </div>
+      <div class="modal-footer p-0"><button class="btn btn-link w-100" data-bs-dismiss="modal">关闭</button></div>
+    </div>
+  </div>
+</div>
+<!-- Station Picker Modal -->
+<div class="modal fade" id="stationPickerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h5 class="modal-title" id="stationModalTitle">选择车站</h5>
+      </div>
+      <div class="modal-body">
+        <input type="search" class="form-control mb-3" placeholder="搜索车站..." id="stationSearch">
+        <ul id="stationList" class="list-group"></ul>
+      </div>
+      <div class="modal-footer p-0"><button class="btn btn-link w-100" data-bs-dismiss="modal">关闭</button></div>
+    </div>
+  </div>
+</div>
+<!-- Time Picker Modal -->
+<div class="modal fade" id="timePickerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h5 class="modal-title">时刻</h5>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-pills mb-3 justify-content-center" id="timeTab" role="tablist">
+          <li class="nav-item" role="presentation"><button class="nav-link active" id="depart-tab" data-bs-toggle="pill" data-bs-target="#none" type="button">出发</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" id="arrive-tab" data-bs-toggle="pill" data-bs-target="#none" type="button">到达</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" id="first-tab" data-bs-toggle="pill" data-bs-target="#none" type="button">首班车</button></li>
+          <li class="nav-item" role="presentation"><button class="nav-link" id="last-tab" data-bs-toggle="pill" data-bs-target="#none" type="button">末班车</button></li>
+        </ul>
+        <input id="timeInput" type="datetime-local" class="form-control">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" id="nowBtn">现在出发</button>
+        <button type="button" class="btn btn-primary" id="timeDoneBtn" data-bs-dismiss="modal">完成</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Fuse.js -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<script>
+const cities=[{key:"sh",name:"上海",logo:"assets/img/metro/logo/logo_sh.png"},{key:"bj",name:"北京",logo:"assets/img/metro/logo/logo_bj.png"},{key:"gz",name:"广州",logo:"assets/img/metro/logo/logo_gz.png"}];
+const stations={sh:["人民广场","徐家汇","世纪大道","虹桥火车站"],bj:["天安门东","国贸","西直门"],gz:["体育西路","广州南站"]};
+let currentCity=cities[0];
+let currentField=null;
+let formState={from:"",to:"",type:"depart",dt:new Date().toISOString().slice(0,16)};
+function renderCityList(q=""){const list=document.getElementById("cityList");list.innerHTML="";const f=new Fuse(cities,{keys:["name","key"],threshold:.3});(q?f.search(q).map(r=>r.item):cities).forEach(c=>{const li=document.createElement("li");li.className="list-group-item list-group-item-action d-flex align-items-center";li.innerHTML=`<img src="${c.logo}" class="city-logo me-2"><span class="flex-grow-1">${c.name}</span>`;li.onclick=()=>selectCity(c);list.appendChild(li);});}
+function renderStationList(q=""){const list=document.getElementById("stationList");list.innerHTML="";const data=stations[currentCity.key]||[];const f=new Fuse(data,{threshold:.3});(q?f.search(q).map(r=>r.item):data).forEach(n=>{const li=document.createElement("li");li.className="list-group-item list-group-item-action";li.textContent=n;li.onclick=()=>selectStation(n);list.appendChild(li);});}
+function selectCity(c){currentCity=c;document.getElementById("cityLogo").src=c.logo;document.getElementById("cityName").textContent=c.name;formState.from="";formState.to="";["fromText","toText"].forEach(id=>{const el=document.getElementById(id);el.textContent=id==="fromText"?"出发站":"到达站";el.classList.add("text-muted");});document.getElementById("citySearch").value="";renderCityList();bootstrap.Modal.getInstance(document.getElementById("cityPickerModal")).hide();}
+function selectStation(n){if(currentField==='from'){formState.from=n;const el=document.getElementById("fromText");el.textContent=n;el.classList.remove("text-muted");}else{formState.to=n;const el=document.getElementById("toText");el.textContent=n;el.classList.remove("text-muted");}document.getElementById("stationSearch").value="";renderStationList();bootstrap.Modal.getInstance(document.getElementById("stationPickerModal")).hide();}
+function formatDisplay(){if(!formState.dt)return"现在出发";if(formState.type==='depart'||formState.type==='arrive')return formState.dt.replace("T"," ");return `${formState.dt} ${formState.type==='first'?"首班车":"末班车"}`;}
+document.getElementById("citySearch").addEventListener("input",e=>renderCityList(e.target.value.trim()));
+document.getElementById("stationSearch").addEventListener("input",e=>renderStationList(e.target.value.trim()));
+['fromSelect','toSelect'].forEach(id=>{document.getElementById(id).addEventListener('show.bs.modal',e=>{currentField=e.currentTarget.dataset.field;document.getElementById("stationModalTitle").textContent=currentField==='from'?"选择出发站":"选择到达站";renderStationList();});});
+Array.from(document.querySelectorAll('#timeTab button')).forEach(btn=>btn.addEventListener('shown.bs.tab',e=>{formState.type=e.target.id.split('-')[0];updateInputType();}));
+function updateInputType(){const input=document.getElementById('timeInput');if(formState.type==='depart'||formState.type==='arrive'){input.type='datetime-local';input.value=formState.dt;}else{input.type='date';input.value=formState.dt.slice(0,10);} }
+document.getElementById('timePickerModal').addEventListener('shown.bs.modal',updateInputType);
+document.getElementById('timeDoneBtn').addEventListener('click',()=>{const val=document.getElementById('timeInput').value;if(val)formState.dt=formState.type==='depart'||formState.type==='arrive'?val:val;document.getElementById('timeText').textContent=formatDisplay();});
+document.getElementById('nowBtn').addEventListener('click',()=>{formState.type='depart';formState.dt=new Date().toISOString().slice(0,16);document.querySelector('#timeTab .nav-link.active').classList.remove('active');document.getElementById('depart-tab').classList.add('active');document.getElementById('timeInput').type='datetime-local';document.getElementById('timeInput').value=formState.dt;document.getElementById('timeText').textContent='现在出发';bootstrap.Modal.getInstance(document.getElementById('timePickerModal')).hide();});
+document.getElementById('planBtn').addEventListener('click',()=>{if(!formState.from||!formState.to)return alert('请选择出发和到达站');if(formState.from===formState.to)return alert('出发站和到达站不能相同');const params=new URLSearchParams({city:currentCity.key,from:formState.from,to:formState.to,type:formState.type,dt:formState.dt});alert(`/route/results?${params.toString()}`);});
+renderCityList();renderStationList();
+</script>
+</body>
+</html>
