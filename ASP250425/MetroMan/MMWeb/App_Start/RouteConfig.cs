@@ -60,6 +60,11 @@ namespace MMWeb
                 url: "cities",
                 defaults: new { controller = "Cities", action = "Index" }
             );
+            routes.MapRoute(
+                name: "StationDetail",
+                url: "cities/{city}/stations/{station}",
+                defaults: new { controller = "Stations", action = "Detail" }
+            );
 
             routes.MapRoute(
                 name: "NetworkMap",
