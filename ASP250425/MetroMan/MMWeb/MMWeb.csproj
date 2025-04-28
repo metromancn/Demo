@@ -159,6 +159,7 @@
     </Compile>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RankingController.cs" />
     <Compile Include="Global.asax.cs">
@@ -300,6 +301,7 @@
     <Content Include="assets\img\metro\thum\rank_zz.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\js\city_data.js" />
     <Content Include="assets\js\ranking_data.js" />
     <Content Include="assets\js\ranking_table.js" />
     <Content Include="favicon.ico" />
@@ -330,6 +332,7 @@
     <Content Include="Views\Home\Index.ja.cshtml" />
     <Content Include="Views\Home\Index.zh-hant.cshtml" />
     <Content Include="Views\Ranking\Index.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Shared.resx">
