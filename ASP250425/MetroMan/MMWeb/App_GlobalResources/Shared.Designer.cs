@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 更新日志.
+        /// </summary>
+        internal static string NavChangelog {
+            get {
+                return ResourceManager.GetString("NavChangelog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 城市.
         /// </summary>
         internal static string NavCities {
@@ -88,11 +97,47 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 更多.
+        /// </summary>
+        internal static string NavMore {
+            get {
+                return ResourceManager.GetString("NavMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 线路图.
+        /// </summary>
+        internal static string NavNetworkMaps {
+            get {
+                return ResourceManager.GetString("NavNetworkMaps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 规划图.
+        /// </summary>
+        internal static string NavPlanning {
+            get {
+                return ResourceManager.GetString("NavPlanning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 排行榜.
         /// </summary>
         internal static string NavRankings {
             get {
                 return ResourceManager.GetString("NavRankings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 换乘.
+        /// </summary>
+        internal static string NavRoute {
+            get {
+                return ResourceManager.GetString("NavRoute", resourceCulture);
             }
         }
         

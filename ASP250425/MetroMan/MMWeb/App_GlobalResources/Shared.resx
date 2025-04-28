@@ -123,11 +123,26 @@
   <data name="NavApp" xml:space="preserve">
     <value>App</value>
   </data>
+  <data name="NavChangelog" xml:space="preserve">
+    <value>更新日志</value>
+  </data>
   <data name="NavCities" xml:space="preserve">
     <value>城市</value>
   </data>
+  <data name="NavMore" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="NavNetworkMaps" xml:space="preserve">
+    <value>线路图</value>
+  </data>
+  <data name="NavPlanning" xml:space="preserve">
+    <value>规划图</value>
+  </data>
   <data name="NavRankings" xml:space="preserve">
     <value>排行榜</value>
+  </data>
+  <data name="NavRoute" xml:space="preserve">
+    <value>换乘</value>
   </data>
   <data name="NavUpdates" xml:space="preserve">
     <value>动态</value>

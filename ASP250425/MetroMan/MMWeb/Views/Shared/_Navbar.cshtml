@@ -16,10 +16,13 @@
 
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">@Shared.NavApp</a>
+                    <a class="nav-link" href="/route">@Shared.NavRoute</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">@Shared.NavCities</a>
+                    <a class="nav-link" href="/cities">@Shared.NavCities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/network-maps">@Shared.NavNetworkMaps</a>
                 </li>
                 <li class="nav-item">
                     @{
@@ -32,14 +35,38 @@
                     <a class="nav-link" href="@($"{langPrefix}/ranking".Replace("//", "/"))">@Shared.NavRankings</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#">@Shared.NavUpdates</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">@Shared.NavAI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">@Shared.NavUpdates</a>
+                    <a class="nav-link" href="#">@Shared.NavApp</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown">
+                        @Shared.NavMore
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/plans">@Shared.NavPlanning</a></li>
+                        <li><a class="dropdown-item" href="/updates">@Shared.NavChangelog</a></li>
+                    </ul>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
+                <li class="nav-item dropdown me-2">
+                    <a class="nav-link dropdown-toggle" href="#" id="cityDropdown" role="button" data-bs-toggle="dropdown">
+                        上海
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cityDropdown" style="max-height:60vh;overflow-y:auto;">
+                        <li><a class="dropdown-item" href="/">北京</a></li>
+                        <li><a class="dropdown-item" href="/">上海</a></li>
+                        <li><a class="dropdown-item" href="/">广州</a></li>
+                        <li><a class="dropdown-item" href="/">深圳</a></li>
+                    </ul>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                         @{
