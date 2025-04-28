@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MapsController.cs" />
     <Compile Include="Controllers\RankingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -334,6 +335,7 @@
     <Content Include="Views\Ranking\Index.cshtml" />
     <Content Include="Views\Cities\Index.cshtml" />
     <Content Include="Views\Cities\Detail.cshtml" />
+    <Content Include="Views\Maps\Network.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Shared.resx">

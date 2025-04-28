@@ -62,6 +62,12 @@ namespace MMWeb
             );
 
             routes.MapRoute(
+                name: "NetworkMap",
+                url: "maps/network/{slug}",
+                defaults: new { controller = "Maps", action = "Network" }
+            );
+
+            routes.MapRoute(
                 name: "DefaultHome",
                 url: "",
                 defaults: new { controller = "Home", action = "Index" }
