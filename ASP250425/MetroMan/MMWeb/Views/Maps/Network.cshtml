@@ -13,8 +13,19 @@
 
         #viewer {
             width: 100%;
-            height: calc(100% - 56px);
+            height: 100%;
         }
+
+        main.container {
+            max-width: none; /* 取消 Bootstrap 断点宽度 */
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+            main.container.py-3 {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
     </style>
 }
 
@@ -28,9 +39,9 @@
         /*** 城市键 ⇢ 图片 URL 映射 ***/
         const cityToImg = {
             sh_cn: '/assets/img/metro/map/routemap_sh_cn.png',
-            bj_cn: '~/assets/img/metro/map/routemap_bj_cn.png',
-            gz_cn: '~/assets/img/metro/map/routemap_gz_cn.png',
-            sh_en: '~/assets/img/metro/map/routemap_sh_en.png'
+            bj_cn: '/assets/img/metro/map/routemap_bj_cn.png',
+            gz_cn: '/assets/img/metro/map/routemap_gz_cn.png',
+            sh_en: '/assets/img/metro/map/routemap_sh_en.png'
         };
 
         /*** 初始化 Viewer ***/
