@@ -1,6 +1,63 @@
-﻿@{ ViewBag.Title = "上海地铁";
+﻿@* ----------  页面标题（影响 <title> 元素） ---------- *@
+@{ ViewBag.Title = "上海地铁";
     Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-<div class="container py-4">
-    <h2 class="mb-4 text-center">上海地铁</h2>
-</div>
+@* ----------  正文开始：会被插进 Layout 内的 <main class="container"> ---------- *@
+
+<!-- ① 标题 -->
+<h1 class="display-5 fw-semibold mb-3">
+    <img src="@Url.Content("~/assets/img/metro/logo/logo_sh.png")" alt="上海地铁 Logo" width="60" class="me-2 align-text-top">
+    上海地铁
+</h1>
+
+<!-- ② 简短介绍 -->
+<p class="lead">
+    上海地铁于&nbsp;1993&nbsp;年开通，是中国运营里程最长、客运量最大的城市轨道交通网络之一。
+    截至&nbsp;2025&nbsp;年，上海地铁拥有 20 多条线路，总长超过&nbsp;800&nbsp;公里，
+    覆盖上海市域及周边主要交通枢纽。
+</p>
+
+<!-- ③ 线路图 -->
+<section class="my-5">
+    <h2 class="h4 mb-3">
+        <i class="bi bi-map-fill me-1"></i> 全网线路图
+    </h2>
+
+    <div class="text-center">
+        <img src="@Url.Content("~/assets/img/metro/map/routemap_sh_cn.png")"
+             alt="上海地铁线路图"
+             class="img-fluid rounded shadow">
+    </div>
+</section>
+
+<!-- ④ 高德静态地图 -->
+<section class="my-5">
+    <h2 class="h4 mb-3">
+        <i class="bi bi-geo-alt-fill me-1"></i> 上海市区位置
+    </h2>
+
+    <!-- ratio 保持 16:9 比例；可根据需要调整 zoom -->
+    <div class="ratio ratio-16x9 rounded shadow">
+        <img src="https://restapi.amap.com/v3/staticmap?location=121.47537,31.232844&zoom=10&size=800*450&key=8cfa09fb3b46ccf1e013458ca8d97015"
+             alt="上海地图（高德静态地图）"
+             class="w-100 h-100 object-fit-cover">
+    </div>
+
+    <small class="text-muted d-block mt-2">
+        数据来源：高德地图
+    </small>
+</section>
+
+<!-- ⑤ 站点/线路列表（可选，留空占位）-->
+<section id="line-list" class="my-5">
+    <h2 class="h4 mb-3">
+        <i class="bi bi-list-ol me-1"></i> 线路清单
+    </h2>
+
+    <p class="text-muted">
+        （此处可按 1～21 号线等顺序添加站点列表或表格）
+    </p>
+</section>
+
+@* ----------  正文结束 ---------- *@
+
