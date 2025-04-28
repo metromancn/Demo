@@ -4,8 +4,14 @@ namespace MMWeb.Controllers
 {
     public class CitiesController : Controller
     {
-        // GET: /Cities/
+        // /cities/
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        // /cities/{slug}
+        public ActionResult Detail(string slug)
         {
             return View();
         }

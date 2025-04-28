@@ -51,6 +51,17 @@ namespace MMWeb
             );
 
             routes.MapRoute(
+                name: "City",
+                url: "cities/{slug}",
+                defaults: new { controller = "Cities", action = "Detail" }
+            );
+            routes.MapRoute(
+                name: "Cities",
+                url: "cities",
+                defaults: new { controller = "Cities", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "DefaultHome",
                 url: "",
                 defaults: new { controller = "Home", action = "Index" }

@@ -333,6 +333,7 @@
     <Content Include="Views\Home\Index.zh-hant.cshtml" />
     <Content Include="Views\Ranking\Index.cshtml" />
     <Content Include="Views\Cities\Index.cshtml" />
+    <Content Include="Views\Cities\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Shared.resx">
