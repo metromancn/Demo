@@ -1,7 +1,50 @@
 ﻿
 @{
-    ViewBag.Title = "Network";
+    ViewBag.Title = "线路图";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Network</h2>
+@section HeadExtra {
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
+        #viewer {
+            width: 100%;
+            height: calc(100% - 56px);
+        }
+    </style>
+}
+
+<div id="viewer"></div>
+
+@section Scripts {
+    <!-- OpenSeadragon 本地脚本 -->
+    <script src="~/assets/js/openseadragon.min.js"></script>
+
+    <script>
+        /*** 城市键 ⇢ 图片 URL 映射 ***/
+        const cityToImg = {
+            sh_cn: '/assets/img/metro/map/routemap_sh_cn.png',
+            bj_cn: '~/assets/img/metro/map/routemap_bj_cn.png',
+            gz_cn: '~/assets/img/metro/map/routemap_gz_cn.png',
+            sh_en: '~/assets/img/metro/map/routemap_sh_en.png'
+        };
+
+        /*** 初始化 Viewer ***/
+        const viewer = OpenSeadragon({
+            id: 'viewer',
+            prefixUrl: '/assets/img/openseadragon/',
+            tileSources: { type: 'image', url: cityToImg['sh_cn'] },
+            maxZoomPixelRatio: 2,
+            gestureSettingsTouch: { pinchToZoom: true, flickEnabled: true }
+        });
+
+        /*** 城市切换 ***/
+        document.getElementById('citySelect').addEventListener('change', e => {
+            viewer.open({ type: 'image', url: cityToImg[e.target.value] });
+        });
+    </script>
+}
