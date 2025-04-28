@@ -54,37 +54,34 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
+
                 <li class="nav-item dropdown me-2">
-                    <a class="nav-link dropdown-toggle" href="#" id="cityDropdown" role="button" data-bs-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="cityDropdown" data-bs-toggle="dropdown" role="button">
+                        <i class="bi bi-geo-alt-fill me-1"></i>
                         上海
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cityDropdown" style="max-height:60vh;overflow-y:auto;">
-                        <li><a class="dropdown-item" href="/">北京</a></li>
-                        <li><a class="dropdown-item" href="/">上海</a></li>
-                        <li><a class="dropdown-item" href="/">广州</a></li>
-                        <li><a class="dropdown-item" href="/">深圳</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cityDropdown" style="max-height:60vh; overflow-y:auto;">
+                        <li><a class="dropdown-item" href="#">北京</a></li>
+                        <li><a class="dropdown-item active" href="#">上海</a></li>
+                        <li><a class="dropdown-item" href="#">广州</a></li>
+                        <li><a class="dropdown-item" href="#">深圳</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        @{
-                            var path = Request.Path.ToLower();
-                            string langMark = "简";
-                            if (path.StartsWith("/zh-hant")) { langMark = "繁"; }
-                            else if (path.StartsWith("/en")) { langMark = "EN"; }
-                            else if (path.StartsWith("/ja")) { langMark = "日"; }
-                        }
-                        @langMark
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="langDropdown" data-bs-toggle="dropdown" role="button">
+                        <i class="bi bi-translate me-1"></i>
+                        简
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="/">简体中文</a></li>
-                        <li><a class="dropdown-item" href="/zh-hant">繁體中文</a></li>
-                        <li><a class="dropdown-item" href="/en">English</a></li>
-                        <li><a class="dropdown-item" href="/ja">日本語</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+                        <li><a class="dropdown-item active" href="/zh/network-map/shanghai">简体中文</a></li>
+                        <li><a class="dropdown-item" href="/zh-hant/network-map/shanghai">繁體中文</a></li>
+                        <li><a class="dropdown-item" href="/en/network-map/shanghai">English</a></li>
+                        <li><a class="dropdown-item" href="/ja/network-map/shanghai">日本語</a></li>
                     </ul>
                 </li>
+
             </ul>
 
         </div>
