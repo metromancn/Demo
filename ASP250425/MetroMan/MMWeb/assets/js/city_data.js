@@ -9,7 +9,8 @@ other: "macau",
 en: "Macau",
 cn: "澳门",
 tw: "澳門",
-ja: "マカオ"
+ja: "マカオ",
+slug: ""
 },
 {
 key: "bj",
@@ -21,7 +22,8 @@ other: "",
 en: "Beijing",
 cn: "北京",
 tw: "北京",
-ja: "北京"
+ja: "北京",
+slug: ""
 },
 {
 key: "cc",
@@ -33,7 +35,8 @@ other: "",
 en: "Changchun",
 cn: "长春",
 tw: "長春",
-ja: "長春"
+ja: "長春",
+slug: ""
 },
 {
 key: "cd",
@@ -45,7 +48,8 @@ other: "",
 en: "Chengdu",
 cn: "成都",
 tw: "成都",
-ja: "成都"
+ja: "成都",
+slug: ""
 },
 {
 key: "cq",
@@ -57,7 +61,8 @@ other: "",
 en: "Chongqing",
 cn: "重庆",
 tw: "重慶",
-ja: "重慶"
+ja: "重慶",
+slug: ""
 },
 {
 key: "cs",
@@ -69,7 +74,8 @@ other: "",
 en: "Changsha",
 cn: "长沙",
 tw: "長沙",
-ja: "長沙"
+ja: "長沙",
+slug: ""
 },
 {
 key: "cz",
@@ -81,7 +87,8 @@ other: "",
 en: "Changzhou",
 cn: "常州",
 tw: "常州",
-ja: "常州"
+ja: "常州",
+slug: ""
 },
 {
 key: "dg",
@@ -93,7 +100,8 @@ other: "",
 en: "Dongguan",
 cn: "东莞",
 tw: "東莞",
-ja: "東莞"
+ja: "東莞",
+slug: ""
 },
 {
 key: "dl",
@@ -105,7 +113,8 @@ other: "",
 en: "Dalian",
 cn: "大连",
 tw: "大連",
-ja: "大連"
+ja: "大連",
+slug: ""
 },
 {
 key: "fz",
@@ -117,7 +126,8 @@ other: "",
 en: "Fuzhou",
 cn: "福州",
 tw: "福州",
-ja: "福州"
+ja: "福州",
+slug: ""
 },
 {
 key: "gx",
@@ -129,7 +139,8 @@ other: "kaohsiung",
 en: "Kaohsiung",
 cn: "高雄",
 tw: "高雄",
-ja: "高雄"
+ja: "高雄",
+slug: ""
 },
 {
 key: "gy",
@@ -141,7 +152,8 @@ other: "",
 en: "Guiyang",
 cn: "贵阳",
 tw: "貴陽",
-ja: "貴陽"
+ja: "貴陽",
+slug: ""
 },
 {
 key: "gz",
@@ -153,7 +165,8 @@ other: "",
 en: "Guangzhou",
 cn: "广州 佛山",
 tw: "廣州 佛山",
-ja: "広州 佛山"
+ja: "広州 佛山",
+slug: ""
 },
 {
 key: "hb",
@@ -165,7 +178,8 @@ other: "",
 en: "Harbin",
 cn: "哈尔滨",
 tw: "哈爾濱",
-ja: "ハルビン"
+ja: "ハルビン",
+slug: ""
 },
 {
 key: "hf",
@@ -177,7 +191,8 @@ other: "",
 en: "Hefei",
 cn: "合肥",
 tw: "合肥",
-ja: "合肥"
+ja: "合肥",
+slug: ""
 },
 {
 key: "hh",
@@ -189,7 +204,8 @@ other: "",
 en: "Hohhot",
 cn: "呼和浩特",
 tw: "呼和浩特",
-ja: "フフホト"
+ja: "フフホト",
+slug: ""
 },
 {
 key: "hk",
@@ -201,7 +217,8 @@ other: "hk|hongkong|hong kong",
 en: "Hong Kong",
 cn: "香港",
 tw: "香港",
-ja: "香港"
+ja: "香港",
+slug: ""
 },
 {
 key: "hz",
@@ -213,7 +230,8 @@ other: "",
 en: "Hangzhou",
 cn: "杭州 绍兴 海宁",
 tw: "杭州 紹興 海寧",
-ja: "杭州 绍兴 海寧"
+ja: "杭州 绍兴 海寧",
+slug: ""
 },
 {
 key: "jh",
@@ -225,7 +243,8 @@ other: "",
 en: "Jinhua",
 cn: "金华",
 tw: "金華",
-ja: "金華"
+ja: "金華",
+slug: ""
 },
 {
 key: "jn",
@@ -237,7 +256,8 @@ other: "",
 en: "Jinan",
 cn: "济南",
 tw: "濟南",
-ja: "済南"
+ja: "済南",
+slug: ""
 },
 {
 key: "km",
@@ -249,7 +269,8 @@ other: "",
 en: "Kunming",
 cn: "昆明",
 tw: "昆明",
-ja: "昆明"
+ja: "昆明",
+slug: ""
 },
 {
 key: "ly",
@@ -261,7 +282,8 @@ other: "",
 en: "Luoyang",
 cn: "洛阳",
 tw: "洛陽",
-ja: "洛陽"
+ja: "洛陽",
+slug: ""
 },
 {
 key: "lz",
@@ -273,7 +295,8 @@ other: "",
 en: "Lanzhou",
 cn: "兰州",
 tw: "蘭州",
-ja: "蘭州"
+ja: "蘭州",
+slug: ""
 },
 {
 key: "nb",
@@ -285,7 +308,8 @@ other: "",
 en: "Ningbo",
 cn: "宁波",
 tw: "寧波",
-ja: "寧波"
+ja: "寧波",
+slug: ""
 },
 {
 key: "nc",
@@ -297,7 +321,8 @@ other: "",
 en: "Nanchang",
 cn: "南昌",
 tw: "南昌",
-ja: "南昌"
+ja: "南昌",
+slug: ""
 },
 {
 key: "nj",
@@ -309,7 +334,8 @@ other: "",
 en: "Nanjing",
 cn: "南京 滁州",
 tw: "南京 滁州",
-ja: "南京 滁州"
+ja: "南京 滁州",
+slug: ""
 },
 {
 key: "nn",
@@ -321,7 +347,8 @@ other: "",
 en: "Nanning",
 cn: "南宁",
 tw: "南寧",
-ja: "南寧"
+ja: "南寧",
+slug: ""
 },
 {
 key: "nt",
@@ -333,7 +360,8 @@ other: "",
 en: "Nantong",
 cn: "南通",
 tw: "南通",
-ja: "南通"
+ja: "南通",
+slug: ""
 },
 {
 key: "qd",
@@ -345,7 +373,8 @@ other: "",
 en: "Qingdao",
 cn: "青岛",
 tw: "青島",
-ja: "青島"
+ja: "青島",
+slug: ""
 },
 {
 key: "sh",
@@ -357,7 +386,8 @@ other: "",
 en: "Shanghai",
 cn: "上海",
 tw: "上海",
-ja: "上海"
+ja: "上海",
+slug: "shanghai"
 },
 {
 key: "sj",
@@ -369,7 +399,8 @@ other: "",
 en: "Shijiazhuang",
 cn: "石家庄",
 tw: "石家莊",
-ja: "石家荘"
+ja: "石家荘",
+slug: ""
 },
 {
 key: "su",
@@ -381,7 +412,8 @@ other: "",
 en: "Suzhou",
 cn: "苏州",
 tw: "蘇州",
-ja: "蘇州"
+ja: "蘇州",
+slug: ""
 },
 {
 key: "sy",
@@ -393,7 +425,8 @@ other: "",
 en: "Shenyang",
 cn: "沈阳",
 tw: "瀋陽",
-ja: "瀋陽"
+ja: "瀋陽",
+slug: ""
 },
 {
 key: "sz",
@@ -405,7 +438,8 @@ other: "",
 en: "Shenzhen",
 cn: "深圳",
 tw: "深圳",
-ja: "深圳"
+ja: "深圳",
+slug: ""
 },
 {
 key: "tb",
@@ -417,7 +451,8 @@ other: "tp|taipei",
 en: "Taipei",
 cn: "台北",
 tw: "台北",
-ja: "台北"
+ja: "台北",
+slug: ""
 },
 {
 key: "tc",
@@ -429,7 +464,8 @@ other: "tc|taichung",
 en: "Taichung",
 cn: "台中",
 tw: "台中",
-ja: "台中"
+ja: "台中",
+slug: ""
 },
 {
 key: "tj",
@@ -441,7 +477,8 @@ other: "",
 en: "Tianjin",
 cn: "天津",
 tw: "天津",
-ja: "天津"
+ja: "天津",
+slug: ""
 },
 {
 key: "ty",
@@ -453,7 +490,8 @@ other: "",
 en: "Taiyuan",
 cn: "太原",
 tw: "太原",
-ja: "太原"
+ja: "太原",
+slug: ""
 },
 {
 key: "tz",
@@ -465,7 +503,8 @@ other: "",
 en: "Taizhou",
 cn: "台州",
 tw: "台州",
-ja: "台州"
+ja: "台州",
+slug: ""
 },
 {
 key: "wh",
@@ -477,7 +516,8 @@ other: "",
 en: "Wuhan",
 cn: "武汉",
 tw: "武漢",
-ja: "武漢"
+ja: "武漢",
+slug: ""
 },
 {
 key: "wl",
@@ -489,7 +529,8 @@ other: "urmq|urumqi",
 en: "Urumqi",
 cn: "乌鲁木齐",
 tw: "烏魯木齊",
-ja: "ウルムチ"
+ja: "ウルムチ",
+slug: ""
 },
 {
 key: "wu",
@@ -501,7 +542,8 @@ other: "",
 en: "Wuhu",
 cn: "芜湖",
 tw: "蕪湖",
-ja: "蕪湖"
+ja: "蕪湖",
+slug: ""
 },
 {
 key: "wx",
@@ -513,7 +555,8 @@ other: "",
 en: "Wuxi",
 cn: "无锡",
 tw: "無錫",
-ja: "無錫"
+ja: "無錫",
+slug: ""
 },
 {
 key: "wz",
@@ -525,7 +568,8 @@ other: "",
 en: "Wenzhou",
 cn: "温州",
 tw: "溫州",
-ja: "温州"
+ja: "温州",
+slug: ""
 },
 {
 key: "xa",
@@ -537,7 +581,8 @@ other: "",
 en: "Xi'an",
 cn: "西安",
 tw: "西安",
-ja: "西安"
+ja: "西安",
+slug: ""
 },
 {
 key: "xm",
@@ -549,7 +594,8 @@ other: "",
 en: "Xiamen",
 cn: "厦门",
 tw: "廈門",
-ja: "廈門"
+ja: "廈門",
+slug: ""
 },
 {
 key: "xz",
@@ -561,7 +607,8 @@ other: "",
 en: "Xuzhou",
 cn: "徐州",
 tw: "徐州",
-ja: "徐州"
+ja: "徐州",
+slug: ""
 },
 {
 key: "zz",
@@ -573,6 +620,7 @@ other: "",
 en: "Zhengzhou",
 cn: "郑州 许昌",
 tw: "鄭州 許昌",
-ja: "鄭州 許昌"
+ja: "鄭州 許昌",
+slug: ""
 }
 ];
