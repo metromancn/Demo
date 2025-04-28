@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Metro Network Map – Demo</title>
+
+  <!-- Bootstrap 仅做导航栏，下拉框可替换 -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- OpenSeadragon 5.0.1 @cdnjs  ✅确保可加载  -->
+  <script src="./assets/js/openseadragon.min.js"></script>
+
+  <style>
+    html,body{height:100%;margin:0;}
+    #viewer{width:100%;height:calc(100% - 56px);} /* 56px = navbar 高 */
+  </style>
+</head>
+<body>
+
+<!-- 顶部导航 + 城市选择 -->
+<nav class="navbar navbar-light bg-light px-3">
+  <span class="navbar-brand fw-semibold">Metro&nbsp;Network&nbsp;Map</span>
+
+  <select id="citySelect" class="form-select w-auto">
+    <option value="sh_cn" selected>上海 · 简体</option>
+    <option value="bj_cn">北京 · 简体</option>
+    <option value="gz_cn">广州 · 简体</option>
+    <option value="sh_en">Shanghai · EN</option>
+  </select>
+</nav>
+
+<!-- OpenSeadragon 容器 -->
+<div id="viewer"></div>
+
+<script>
+/*** 城市键 ⇢ 图片 URL 映射 ***/
+const cityToImg = {
+  sh_cn: './assets/img/metro/map/routemap_sh_cn.png',
+  bj_cn: './assets/img/metro/map/routemap_bj_cn.png',
+  gz_cn: './assets/img/metro/map/routemap_gz_cn.png',
+  sh_en: './assets/img/metro/map/routemap_sh_en.png'
+};
+
+/*** 初始化 Viewer（确保 OpenSeadragon 已加载） ***/
+const viewer = OpenSeadragon({
+  id: 'viewer',
+  prefixUrl: './assets/img/openseadragon/',
+  tileSources: { type:'image', url: cityToImg['sh_cn'] },
+  maxZoomPixelRatio: 2,
+  gestureSettingsTouch:{ pinchToZoom:true, flickEnabled:true }
+});
+
+/*** 城市切换 ***/
+document.getElementById('citySelect').addEventListener('change', e=>{
+  viewer.open({ type:'image', url: cityToImg[e.target.value] });
+});
+</script>
+</body>
+</html>
